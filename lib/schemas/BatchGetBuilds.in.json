@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "ids": [
+                    "codebuild-demo-project:9b0ac37f-d19e-4254-9079-f47e9a389eEX",
+                    "codebuild-demo-project:b79a46f7-1473-4636-a23f-da9c45c208EX"
+                ]
+            },
+            "properties": {
+                "ids": {
+                    "description": "The IDs of the builds.",
+                    "items": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "maxItems": 100,
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "ids"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

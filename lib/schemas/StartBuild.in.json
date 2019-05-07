@@ -1,0 +1,555 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "artifactsOverride": {
+                    "description": "Build output artifact settings that override, for this build only, the latest ones already defined in the build project.",
+                    "properties": {
+                        "artifactIdentifier": {
+                            "description": " An identifier for this artifact definition. ",
+                            "type": "string"
+                        },
+                        "encryptionDisabled": {
+                            "description": " Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an invalidInputException is thrown. ",
+                            "type": "boolean"
+                        },
+                        "location": {
+                            "description": "<p>Information about the build output artifact location:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output locations instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.</p> </li> </ul>",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "<p>Along with <code>path</code> and <code>namespaceType</code>, the pattern that AWS CodeBuild uses to name and store the output artifact:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), the artifact is stored in the root of the output bucket.</p> </li> </ul> <p>For example:</p> <ul> <li> <p> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code> is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>, then the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>. </p> </li> <li> <p> If <code>path</code> is empty, <code>namespaceType</code> is set to <code>NONE</code>, and <code>name</code> is set to \"<code>/</code>\", the output artifact is stored in the root of the output bucket. </p> </li> <li> <p> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code> is set to <code>BUILD_ID</code>, and <code>name</code> is set to \"<code>/</code>\", the output artifact is stored in <code>MyArtifacts/<i>build-ID</i> </code>. </p> </li> </ul>",
+                            "type": "string"
+                        },
+                        "namespaceType": {
+                            "description": "<p>Along with <code>path</code> and <code>name</code>, the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p> <ul> <li> <p> <code>BUILD_ID</code>: Include the build ID in the location of the build output artifact.</p> </li> <li> <p> <code>NONE</code>: Do not include the build ID. This is the default if <code>namespaceType</code> is not specified.</p> </li> </ul> </li> </ul> <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code> is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>, the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.</p>",
+                            "enum": [
+                                "NONE",
+                                "BUILD_ID"
+                            ],
+                            "type": "string"
+                        },
+                        "overrideArtifactName": {
+                            "description": " If this flag is set, a name specified in the build spec file overrides the artifact name. The name specified in a build spec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique. ",
+                            "type": "boolean"
+                        },
+                        "packaging": {
+                            "description": "<p>The type of build output artifact to create:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output artifacts instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p> <ul> <li> <p> <code>NONE</code>: AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if <code>packaging</code> is not specified.</p> </li> <li> <p> <code>ZIP</code>: AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.</p> </li> </ul> </li> </ul>",
+                            "enum": [
+                                "NONE",
+                                "ZIP"
+                            ],
+                            "type": "string"
+                        },
+                        "path": {
+                            "description": "<p>Along with <code>namespaceType</code> and <code>name</code>, the pattern that AWS CodeBuild uses to name and store the output artifact:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, this is the path to the output artifact. If <code>path</code> is not specified, <code>path</code> is not used.</p> </li> </ul> <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code> is set to <code>NONE</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>, the output artifact is stored in the output bucket at <code>MyArtifacts/MyArtifact.zip</code>.</p>",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "<p>The type of build output artifact. Valid values include:</p> <ul> <li> <p> <code>CODEPIPELINE</code>: The build project has build output generated through AWS CodePipeline.</p> </li> <li> <p> <code>NO_ARTIFACTS</code>: The build project does not produce any build output.</p> </li> <li> <p> <code>S3</code>: The build project stores build output in Amazon Simple Storage Service (Amazon S3).</p> </li> </ul>",
+                            "enum": [
+                                "CODEPIPELINE",
+                                "S3",
+                                "NO_ARTIFACTS"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "type": "object"
+                },
+                "buildspecOverride": {
+                    "description": "A build spec declaration that overrides, for this build only, the latest one already defined in the build project.",
+                    "type": "string"
+                },
+                "cacheOverride": {
+                    "description": "A ProjectCache object specified for this build that overrides the one defined in the build project.",
+                    "properties": {
+                        "location": {
+                            "description": "<p>Information about the cache location: </p> <ul> <li> <p> <code>NO_CACHE</code> or <code>LOCAL</code>: This value is ignored.</p> </li> <li> <p> <code>S3</code>: This is the S3 bucket name/prefix.</p> </li> </ul>",
+                            "type": "string"
+                        },
+                        "modes": {
+                            "description": "<p> If you use a <code>LOCAL</code> cache, the local cache mode. You can use one or more local cache modes at the same time. </p> <ul> <li> <p> <code>LOCAL_SOURCE_CACHE</code> mode caches Git metadata for primary and secondary sources. After the cache is created, subsequent builds pull only the change between commits. This mode is a good choice for projects with a clean working directory and a source that is a large Git repository. If you choose this option and your project does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option is ignored. </p> </li> <li> <p> <code>LOCAL_DOCKER_LAYER_CACHE</code> mode caches existing Docker layers. This mode is a good choice for projects that build or pull large Docker images. It can prevent the performance issues caused by pulling large Docker images down from the network. </p> <note> <ul> <li> <p> You can use a Docker layer cache in the Linux enviornment only. </p> </li> <li> <p> The <code>privileged</code> flag must be set so that your project has the required Docker permissions. </p> </li> <li> <p> You should consider the security implications before you use a Docker layer cache. </p> </li> </ul> </note> </li> </ul> <ul> <li> <p> <code>LOCAL_CUSTOM_CACHE</code> mode caches directories you specify in the buildspec file. This mode is a good choice if your build scenario is not suited to one of the other three local cache modes. If you use a custom cache: </p> <ul> <li> <p> Only directories can be specified for caching. You cannot specify individual files. </p> </li> <li> <p> Symlinks are used to reference cached directories. </p> </li> <li> <p> Cached directories are linked to your build before it downloads its project sources. Cached items are overriden if a source item has the same name. Directories are specified using cache paths in the buildspec file. </p> </li> </ul> </li> </ul>",
+                            "items": {
+                                "enum": [
+                                    "LOCAL_DOCKER_LAYER_CACHE",
+                                    "LOCAL_SOURCE_CACHE",
+                                    "LOCAL_CUSTOM_CACHE"
+                                ],
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "type": {
+                            "description": "<p>The type of cache used by the build project. Valid values include:</p> <ul> <li> <p> <code>NO_CACHE</code>: The build project does not use any cache.</p> </li> <li> <p> <code>S3</code>: The build project reads and writes from and to S3.</p> </li> <li> <p> <code>LOCAL</code>: The build project stores a cache locally on a build host that is only available to that build host.</p> </li> </ul>",
+                            "enum": [
+                                "NO_CACHE",
+                                "S3",
+                                "LOCAL"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "type": "object"
+                },
+                "certificateOverride": {
+                    "description": "The name of a certificate for this build that overrides the one specified in the build project.",
+                    "type": "string"
+                },
+                "computeTypeOverride": {
+                    "description": "The name of a compute type for this build that overrides the one specified in the build project.",
+                    "enum": [
+                        "BUILD_GENERAL1_SMALL",
+                        "BUILD_GENERAL1_MEDIUM",
+                        "BUILD_GENERAL1_LARGE"
+                    ],
+                    "type": "string"
+                },
+                "environmentTypeOverride": {
+                    "description": "A container type for this build that overrides the one specified in the build project.",
+                    "enum": [
+                        "WINDOWS_CONTAINER",
+                        "LINUX_CONTAINER"
+                    ],
+                    "type": "string"
+                },
+                "environmentVariablesOverride": {
+                    "description": "A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.",
+                    "items": {
+                        "description": "Information about an environment variable for a build project or a build.",
+                        "properties": {
+                            "name": {
+                                "description": "The name or key of the environment variable.",
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "<p>The type of environment variable. Valid values include:</p> <ul> <li> <p> <code>PARAMETER_STORE</code>: An environment variable stored in Amazon EC2 Systems Manager Parameter Store.</p> </li> <li> <p> <code>PLAINTEXT</code>: An environment variable in plaintext format.</p> </li> </ul>",
+                                "enum": [
+                                    "PLAINTEXT",
+                                    "PARAMETER_STORE"
+                                ],
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "<p>The value of the environment variable.</p> <important> <p>We strongly discourage the use of environment variables to store sensitive values, especially AWS secret key IDs and secret access keys. Environment variables can be displayed in plain text using the AWS CodeBuild console and the AWS Command Line Interface (AWS CLI).</p> </important>",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "value"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "gitCloneDepthOverride": {
+                    "description": "The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "gitSubmodulesConfigOverride": {
+                    "description": " Information about the Git submodules configuration for this build of an AWS CodeBuild build project. ",
+                    "properties": {
+                        "fetchSubmodules": {
+                            "description": " Set to true to fetch Git submodules for your AWS CodeBuild build project. ",
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "fetchSubmodules"
+                    ],
+                    "type": "object"
+                },
+                "imageOverride": {
+                    "description": "The name of an image for this build that overrides the one specified in the build project.",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "imagePullCredentialsTypeOverride": {
+                    "description": "<p> The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values: </p> <ul> <li> <p> <code>CODEBUILD</code> specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild's service principal.</p> </li> <li> <p> <code>SERVICE_ROLE</code> specifies that AWS CodeBuild uses your build project's service role. </p> </li> </ul> <p> When using a cross-account or private registry image, you must use SERVICE_ROLE credentials. When using an AWS CodeBuild curated image, you must use CODEBUILD credentials. </p>",
+                    "enum": [
+                        "CODEBUILD",
+                        "SERVICE_ROLE"
+                    ],
+                    "type": "string"
+                },
+                "insecureSslOverride": {
+                    "description": "Enable this flag to override the insecure SSL setting that is specified in the build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.",
+                    "type": "boolean"
+                },
+                "logsConfigOverride": {
+                    "description": " Log settings for this build that override the log settings defined in the build project. ",
+                    "properties": {
+                        "cloudWatchLogs": {
+                            "description": " Information about Amazon CloudWatch Logs for a build project. Amazon CloudWatch Logs are enabled by default. ",
+                            "properties": {
+                                "groupName": {
+                                    "description": " The group name of the logs in Amazon CloudWatch Logs. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\">Working with Log Groups and Log Streams</a>. ",
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "description": "<p>The current status of the logs in Amazon CloudWatch Logs for a build project. Valid values are:</p> <ul> <li> <p> <code>ENABLED</code>: Amazon CloudWatch Logs are enabled for this build project.</p> </li> <li> <p> <code>DISABLED</code>: Amazon CloudWatch Logs are not enabled for this build project.</p> </li> </ul>",
+                                    "enum": [
+                                        "ENABLED",
+                                        "DISABLED"
+                                    ],
+                                    "type": "string"
+                                },
+                                "streamName": {
+                                    "description": " The prefix of the stream name of the Amazon CloudWatch Logs. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\">Working with Log Groups and Log Streams</a>. ",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ],
+                            "type": "object"
+                        },
+                        "s3Logs": {
+                            "description": " Information about logs built to an S3 bucket for a build project. S3 logs are not enabled by default. ",
+                            "properties": {
+                                "encryptionDisabled": {
+                                    "description": " Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted. ",
+                                    "type": "boolean"
+                                },
+                                "location": {
+                                    "description": " The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is <code>my-bucket</code>, and your path prefix is <code>build-log</code>, then acceptable formats are <code>my-bucket/build-log</code> or <code>arn:aws:s3:::my-bucket/build-log</code>. ",
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "description": "<p>The current status of the S3 build logs. Valid values are:</p> <ul> <li> <p> <code>ENABLED</code>: S3 build logs are enabled for this build project.</p> </li> <li> <p> <code>DISABLED</code>: S3 build logs are not enabled for this build project.</p> </li> </ul>",
+                                    "enum": [
+                                        "ENABLED",
+                                        "DISABLED"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "status"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "privilegedModeOverride": {
+                    "description": "Enable this flag to override privileged mode in the build project.",
+                    "type": "boolean"
+                },
+                "projectName": {
+                    "description": "The name of the AWS CodeBuild build project to start running a build.",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "queuedTimeoutInMinutesOverride": {
+                    "description": " The number of minutes a build is allowed to be queued before it times out. ",
+                    "maximum": 480,
+                    "minimum": 5,
+                    "type": "integer"
+                },
+                "registryCredentialOverride": {
+                    "description": " The credentials for access to a private registry. ",
+                    "properties": {
+                        "credential": {
+                            "description": "<p> The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager. </p> <note> <p> The <code>credential</code> can use the name of the credentials only if they exist in your current region. </p> </note>",
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "credentialProvider": {
+                            "description": " The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager. ",
+                            "enum": [
+                                "SECRETS_MANAGER"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "credential",
+                        "credentialProvider"
+                    ],
+                    "type": "object"
+                },
+                "reportBuildStatusOverride": {
+                    "description": " Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown. ",
+                    "type": "boolean"
+                },
+                "secondaryArtifactsOverride": {
+                    "description": " An array of <code>ProjectArtifacts</code> objects. ",
+                    "items": {
+                        "description": "Information about the build output artifacts for the build project.",
+                        "properties": {
+                            "artifactIdentifier": {
+                                "description": " An identifier for this artifact definition. ",
+                                "type": "string"
+                            },
+                            "encryptionDisabled": {
+                                "description": " Set to true if you do not want your output artifacts encrypted. This option is valid only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an invalidInputException is thrown. ",
+                                "type": "boolean"
+                            },
+                            "location": {
+                                "description": "<p>Information about the build output artifact location:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output locations instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.</p> </li> </ul>",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "<p>Along with <code>path</code> and <code>namespaceType</code>, the pattern that AWS CodeBuild uses to name and store the output artifact:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, this is the name of the output artifact object. If you set the name to be a forward slash (\"/\"), the artifact is stored in the root of the output bucket.</p> </li> </ul> <p>For example:</p> <ul> <li> <p> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code> is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>, then the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>. </p> </li> <li> <p> If <code>path</code> is empty, <code>namespaceType</code> is set to <code>NONE</code>, and <code>name</code> is set to \"<code>/</code>\", the output artifact is stored in the root of the output bucket. </p> </li> <li> <p> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code> is set to <code>BUILD_ID</code>, and <code>name</code> is set to \"<code>/</code>\", the output artifact is stored in <code>MyArtifacts/<i>build-ID</i> </code>. </p> </li> </ul>",
+                                "type": "string"
+                            },
+                            "namespaceType": {
+                                "description": "<p>Along with <code>path</code> and <code>name</code>, the pattern that AWS CodeBuild uses to determine the name and location to store the output artifact:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p> <ul> <li> <p> <code>BUILD_ID</code>: Include the build ID in the location of the build output artifact.</p> </li> <li> <p> <code>NONE</code>: Do not include the build ID. This is the default if <code>namespaceType</code> is not specified.</p> </li> </ul> </li> </ul> <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code> is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>, the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.</p>",
+                                "enum": [
+                                    "NONE",
+                                    "BUILD_ID"
+                                ],
+                                "type": "string"
+                            },
+                            "overrideArtifactName": {
+                                "description": " If this flag is set, a name specified in the build spec file overrides the artifact name. The name specified in a build spec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique. ",
+                                "type": "boolean"
+                            },
+                            "packaging": {
+                                "description": "<p>The type of build output artifact to create:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output artifacts instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p> <ul> <li> <p> <code>NONE</code>: AWS CodeBuild creates in the output bucket a folder that contains the build output. This is the default if <code>packaging</code> is not specified.</p> </li> <li> <p> <code>ZIP</code>: AWS CodeBuild creates in the output bucket a ZIP file that contains the build output.</p> </li> </ul> </li> </ul>",
+                                "enum": [
+                                    "NONE",
+                                    "ZIP"
+                                ],
+                                "type": "string"
+                            },
+                            "path": {
+                                "description": "<p>Along with <code>namespaceType</code> and <code>name</code>, the pattern that AWS CodeBuild uses to name and store the output artifact:</p> <ul> <li> <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this value if specified. This is because AWS CodePipeline manages its build output names instead of AWS CodeBuild.</p> </li> <li> <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if specified, because no build output is produced.</p> </li> <li> <p>If <code>type</code> is set to <code>S3</code>, this is the path to the output artifact. If <code>path</code> is not specified, <code>path</code> is not used.</p> </li> </ul> <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code> is set to <code>NONE</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>, the output artifact is stored in the output bucket at <code>MyArtifacts/MyArtifact.zip</code>.</p>",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "<p>The type of build output artifact. Valid values include:</p> <ul> <li> <p> <code>CODEPIPELINE</code>: The build project has build output generated through AWS CodePipeline.</p> </li> <li> <p> <code>NO_ARTIFACTS</code>: The build project does not produce any build output.</p> </li> <li> <p> <code>S3</code>: The build project stores build output in Amazon Simple Storage Service (Amazon S3).</p> </li> </ul>",
+                                "enum": [
+                                    "CODEPIPELINE",
+                                    "S3",
+                                    "NO_ARTIFACTS"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 12,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "secondarySourcesOverride": {
+                    "description": " An array of <code>ProjectSource</code> objects. ",
+                    "items": {
+                        "description": "Information about the build input source code for the build project.",
+                        "properties": {
+                            "auth": {
+                                "description": "<p>Information about the authorization settings for AWS CodeBuild to access the source code to be built.</p> <p>This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly.</p>",
+                                "properties": {
+                                    "resource": {
+                                        "description": "The resource value that applies to the specified authorization type.",
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "<note> <p> This data type is deprecated and is no longer accurate or used. </p> </note> <p>The authorization type to use. The only valid value is <code>OAUTH</code>, which represents the OAuth authorization type.</p>",
+                                        "enum": [
+                                            "OAUTH"
+                                        ],
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "type"
+                                ],
+                                "type": "object"
+                            },
+                            "buildspec": {
+                                "description": "<p>The build spec declaration to use for the builds in this build project.</p> <p>If this value is not specified, a build spec must be included along with the source code to be built.</p>",
+                                "type": "string"
+                            },
+                            "gitCloneDepth": {
+                                "description": "Information about the Git clone depth for the build project.",
+                                "minimum": 0,
+                                "type": "integer"
+                            },
+                            "gitSubmodulesConfig": {
+                                "description": " Information about the Git submodules configuration for the build project. ",
+                                "properties": {
+                                    "fetchSubmodules": {
+                                        "description": " Set to true to fetch Git submodules for your AWS CodeBuild build project. ",
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "fetchSubmodules"
+                                ],
+                                "type": "object"
+                            },
+                            "insecureSsl": {
+                                "description": "Enable this flag to ignore SSL warnings while connecting to the project source code.",
+                                "type": "boolean"
+                            },
+                            "location": {
+                                "description": "<p>Information about the location of the source code to be built. Valid values include:</p> <ul> <li> <p>For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, <code>location</code> should not be specified. If it is specified, AWS CodePipeline ignores it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.</p> </li> <li> <p>For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, <code>https://git-codecommit.<i>region-ID</i>.amazonaws.com/v1/repos/<i>repo-name</i> </code>).</p> </li> <li> <p>For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, one of the following. </p> <ul> <li> <p> The path to the ZIP file that contains the source code (for example, <code> <i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>object-name</i>.zip</code>). </p> </li> <li> <p> The path to the folder that contains the source code (for example, <code> <i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>source-code</i>/<i>folder</i>/</code>). </p> </li> </ul> </li> <li> <p>For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your GitHub account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub <b>Authorize application</b> page, for <b>Organization access</b>, choose <b>Request access</b> next to each repository you want to allow AWS CodeBuild to have access to, and then choose <b>Authorize application</b>. (After you have connected to your GitHub account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the <code>source</code> object, set the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</p> </li> <li> <p>For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. You must connect your AWS account to your Bitbucket account. Use the AWS CodeBuild console to start creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket <b>Confirm access to your account</b> page, choose <b>Grant access</b>. (After you have connected to your Bitbucket account, you do not need to finish creating the build project. You can leave the AWS CodeBuild console.) To instruct AWS CodeBuild to use this connection, in the <code>source</code> object, set the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</p> </li> </ul>",
+                                "type": "string"
+                            },
+                            "reportBuildStatus": {
+                                "description": " Set to true to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a different source provider, an invalidInputException is thrown. ",
+                                "type": "boolean"
+                            },
+                            "sourceIdentifier": {
+                                "description": " An identifier for this project source. ",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "<p>The type of repository that contains the source code to be built. Valid values include:</p> <ul> <li> <p> <code>BITBUCKET</code>: The source code is in a Bitbucket repository.</p> </li> <li> <p> <code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</p> </li> <li> <p> <code>CODEPIPELINE</code>: The source code settings are specified in the source action of a pipeline in AWS CodePipeline.</p> </li> <li> <p> <code>GITHUB</code>: The source code is in a GitHub repository.</p> </li> <li> <p> <code>NO_SOURCE</code>: The project does not have input source code.</p> </li> <li> <p> <code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.</p> </li> </ul>",
+                                "enum": [
+                                    "CODECOMMIT",
+                                    "CODEPIPELINE",
+                                    "GITHUB",
+                                    "S3",
+                                    "BITBUCKET",
+                                    "GITHUB_ENTERPRISE",
+                                    "NO_SOURCE"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 12,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "secondarySourcesVersionOverride": {
+                    "description": " An array of <code>ProjectSourceVersion</code> objects that specify one or more versions of the project's secondary sources to be used for this build only. ",
+                    "items": {
+                        "description": "A source identifier and its corresponding version.",
+                        "properties": {
+                            "sourceIdentifier": {
+                                "description": "An identifier for a source in the build project.",
+                                "type": "string"
+                            },
+                            "sourceVersion": {
+                                "description": "<p>The source version for the corresponding source identifier. If specified, must be one of:</p> <ul> <li> <p>For AWS CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.</p> </li> </ul>",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "sourceIdentifier",
+                            "sourceVersion"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 12,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "serviceRoleOverride": {
+                    "description": "The name of a service role for this build that overrides the one specified in the build project.",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "sourceAuthOverride": {
+                    "description": "An authorization type for this build that overrides the one defined in the build project. This override applies only if the build project's source is BitBucket or GitHub.",
+                    "properties": {
+                        "resource": {
+                            "description": "The resource value that applies to the specified authorization type.",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "<note> <p> This data type is deprecated and is no longer accurate or used. </p> </note> <p>The authorization type to use. The only valid value is <code>OAUTH</code>, which represents the OAuth authorization type.</p>",
+                            "enum": [
+                                "OAUTH"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "type": "object"
+                },
+                "sourceLocationOverride": {
+                    "description": "A location that overrides, for this build, the source location for the one defined in the build project.",
+                    "type": "string"
+                },
+                "sourceTypeOverride": {
+                    "description": "A source input type, for this build, that overrides the source input defined in the build project.",
+                    "enum": [
+                        "CODECOMMIT",
+                        "CODEPIPELINE",
+                        "GITHUB",
+                        "S3",
+                        "BITBUCKET",
+                        "GITHUB_ENTERPRISE",
+                        "NO_SOURCE"
+                    ],
+                    "type": "string"
+                },
+                "sourceVersion": {
+                    "description": "<p>A version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, must be one of:</p> <ul> <li> <p>For AWS CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.</p> </li> </ul>",
+                    "type": "string"
+                },
+                "timeoutInMinutesOverride": {
+                    "description": "The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.",
+                    "maximum": 480,
+                    "minimum": 5,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "projectName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
