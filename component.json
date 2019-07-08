@@ -1,6 +1,6 @@
 {
     "title": "AWS CodeBuild",
-    "description": "<fullname>AWS CodeBuild</fullname> <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code, runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need to provision, manage, and scale your own build servers. It provides prepackaged build environments for the most popular programming languages and build tools, such as Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests. You pay only for the build time you consume. For more information about AWS CodeBuild, see the <i>AWS CodeBuild User Guide</i>.</p> <p>AWS CodeBuild supports these operations:</p> <ul> <li> <p> <code>BatchDeleteBuilds</code>: Deletes one or more builds.</p> </li> <li> <p> <code>BatchGetProjects</code>: Gets information about one or more build projects. A <i>build project</i> defines how AWS CodeBuild runs a build. This includes information such as where to get the source code to build, the build environment to use, the build commands to run, and where to store the build output. A <i>build environment</i> is a representation of operating system, programming language runtime, and tools that AWS CodeBuild uses to run a build. You can add tags to build projects to help manage your resources and costs.</p> </li> <li> <p> <code>CreateProject</code>: Creates a build project.</p> </li> <li> <p> <code>CreateWebhook</code>: For an existing AWS CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start rebuilding the source code every time a code change is pushed to the repository.</p> </li> <li> <p> <code>UpdateWebhook</code>: Changes the settings of an existing webhook.</p> </li> <li> <p> <code>DeleteProject</code>: Deletes a build project.</p> </li> <li> <p> <code>DeleteWebhook</code>: For an existing AWS CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code change is pushed to the repository.</p> </li> <li> <p> <code>ListProjects</code>: Gets a list of build project names, with each build project name representing a single build project.</p> </li> <li> <p> <code>UpdateProject</code>: Changes the settings of an existing build project.</p> </li> <li> <p> <code>BatchGetBuilds</code>: Gets information about one or more builds.</p> </li> <li> <p> <code>ListBuilds</code>: Gets a list of build IDs, with each build ID representing a single build.</p> </li> <li> <p> <code>ListBuildsForProject</code>: Gets a list of build IDs for the specified build project, with each build ID representing a single build.</p> </li> <li> <p> <code>StartBuild</code>: Starts running a build.</p> </li> <li> <p> <code>StopBuild</code>: Attempts to stop running a build.</p> </li> <li> <p> <code>ListCuratedEnvironmentImages</code>: Gets information about Docker images that are managed by AWS CodeBuild.</p> </li> <li> <p> <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.</p> </li> <li> <p> <code>ImportSourceCredentials</code>: Imports the source repository credentials for an AWS CodeBuild project that has its source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.</p> </li> <li> <p> <code>ListSourceCredentials</code>: Returns a list of <code>SourceCredentialsInfo</code> objects. Each <code>SourceCredentialsInfo</code> object includes the authentication type, token ARN, and type of source provider for one set of credentials.</p> </li> </ul>",
+    "description": "AWS CodeBuild AWS CodeBuild is a fully managed build service in the cloud. AWS\nCodeBuild compiles your source code, runs unit tests, and produces artifacts\nthat are ready to deploy. AWS CodeBuild eliminates the need to provision,\nmanage, and scale your own build servers. It provides prepackaged build\nenvironments for the most popular programming languages and build tools, such as\nApache Maven, Gradle, and more. You can also fully customize build environments\nin AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically\nto meet peak build requests. You pay only for the build time you consume. For\nmore information about AWS CodeBuild, see the AWS CodeBuild User Guide.\n\nAWS CodeBuild supports these operations:\n\n *   BatchDeleteBuilds: Deletes one or more builds.\n   \n   \n *   BatchGetProjects: Gets information about one or more build projects. A build\n   project defines how AWS CodeBuild runs a build. This includes information\n   such as where to get the source code to build, the build environment to use,\n   the build commands to run, and where to store the build output. A build\n   environment is a representation of operating system, programming language\n   runtime, and tools that AWS CodeBuild uses to run a build. You can add tags\n   to build projects to help manage your resources and costs.\n   \n   \n *   CreateProject: Creates a build project.\n   \n   \n *   CreateWebhook: For an existing AWS CodeBuild build project that has its\n   source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild\n   to start rebuilding the source code every time a code change is pushed to the\n   repository.\n   \n   \n *   UpdateWebhook: Changes the settings of an existing webhook.\n   \n   \n *   DeleteProject: Deletes a build project.\n   \n   \n *   DeleteWebhook: For an existing AWS CodeBuild build project that has its\n   source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild\n   from rebuilding the source code every time a code change is pushed to the\n   repository.\n   \n   \n *   ListProjects: Gets a list of build project names, with each build project\n   name representing a single build project.\n   \n   \n *   UpdateProject: Changes the settings of an existing build project.\n   \n   \n *   BatchGetBuilds: Gets information about one or more builds.\n   \n   \n *   ListBuilds: Gets a list of build IDs, with each build ID representing a\n   single build.\n   \n   \n *   ListBuildsForProject: Gets a list of build IDs for the specified build\n   project, with each build ID representing a single build.\n   \n   \n *   StartBuild: Starts running a build.\n   \n   \n *   StopBuild: Attempts to stop running a build.\n   \n   \n *   ListCuratedEnvironmentImages: Gets information about Docker images that are\n   managed by AWS CodeBuild.\n   \n   \n *   DeleteSourceCredentials: Deletes a set of GitHub, GitHub Enterprise, or\n   Bitbucket source credentials.\n   \n   \n *   ImportSourceCredentials: Imports the source repository credentials for an\n   AWS CodeBuild project that has its source code stored in a GitHub, GitHub\n   Enterprise, or Bitbucket repository.\n   \n   \n *   ListSourceCredentials: Returns a list of SourceCredentialsInfo objects. Each \n   SourceCredentialsInfo object includes the authentication type, token ARN, and\n   type of source provider for one set of credentials.",
     "docsUrl": "https://aws.amazon.com/codebuild/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/codebuild/2016-10-06/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,7 +38,7 @@
     "actions": {
         "BatchDeleteBuilds": {
             "main": "./lib/actions/BatchDeleteBuilds.js",
-            "title": "Deletes one or more builds.",
+            "title": "BatchDeleteBuilds",
             "description": "Deletes one or more builds.",
             "fields": {
                 "verbose": {
@@ -55,7 +55,7 @@
         },
         "BatchGetBuilds": {
             "main": "./lib/actions/BatchGetBuilds.js",
-            "title": "Gets information about builds.",
+            "title": "BatchGetBuilds",
             "description": "Gets information about builds.",
             "fields": {
                 "verbose": {
@@ -72,7 +72,7 @@
         },
         "BatchGetProjects": {
             "main": "./lib/actions/BatchGetProjects.js",
-            "title": "Gets information about build projects.",
+            "title": "BatchGetProjects",
             "description": "Gets information about build projects.",
             "fields": {
                 "verbose": {
@@ -89,7 +89,7 @@
         },
         "CreateProject": {
             "main": "./lib/actions/CreateProject.js",
-            "title": "Creates a build project.",
+            "title": "CreateProject",
             "description": "Creates a build project.",
             "fields": {
                 "verbose": {
@@ -106,8 +106,8 @@
         },
         "CreateWebhook": {
             "main": "./lib/actions/CreateWebhook.js",
-            "title": "<p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start rebuilding the source code every time a code change is pushed to the repository.</p> <important> <p>If you enable webhooks for an AWS CodeBuild project, and the project is used as a build step in AWS CodePipeline, then two identical builds are created for each commit. One build is triggered through webhooks, and one through AWS CodePipeline. Because billing is on a per-build basis, you are billed for both builds. Therefore, if you are using AWS CodePipeline, we recommend that you disable webhooks in AWS CodeBuild. In the AWS CodeBuild console, clear the Webhook box. For more information, see step 5 in <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console\">Change a Build Project's Settings</a>.</p> </important>",
-            "description": "<p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to start rebuilding the source code every time a code change is pushed to the repository.</p> <important> <p>If you enable webhooks for an AWS CodeBuild project, and the project is used as a build step in AWS CodePipeline, then two identical builds are created for each commit. One build is triggered through webhooks, and one through AWS CodePipeline. Because billing is on a per-build basis, you are billed for both builds. Therefore, if you are using AWS CodePipeline, we recommend that you disable webhooks in AWS CodeBuild. In the AWS CodeBuild console, clear the Webhook box. For more information, see step 5 in <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console\">Change a Build Project's Settings</a>.</p> </important>",
+            "title": "CreateWebhook",
+            "description": "For an existing AWS CodeBuild build project that has its source code stored in a\nGitHub or Bitbucket repository, enables AWS CodeBuild to start rebuilding the\nsource code every time a code change is pushed to the repository.\n\nIf you enable webhooks for an AWS CodeBuild project, and the project is used as\na build step in AWS CodePipeline, then two identical builds are created for each\ncommit. One build is triggered through webhooks, and one through AWS\nCodePipeline. Because billing is on a per-build basis, you are billed for both\nbuilds. Therefore, if you are using AWS CodePipeline, we recommend that you\ndisable webhooks in AWS CodeBuild. In the AWS CodeBuild console, clear the\nWebhook box. For more information, see step 5 in Change a Build Project's\nSettings\n[https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console]\n.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -123,7 +123,7 @@
         },
         "DeleteProject": {
             "main": "./lib/actions/DeleteProject.js",
-            "title": "Deletes a build project.",
+            "title": "DeleteProject",
             "description": "Deletes a build project.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "DeleteSourceCredentials": {
             "main": "./lib/actions/DeleteSourceCredentials.js",
-            "title": " Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials. ",
+            "title": "DeleteSourceCredentials",
             "description": " Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials. ",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "DeleteWebhook": {
             "main": "./lib/actions/DeleteWebhook.js",
-            "title": "For an existing AWS CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code change is pushed to the repository.",
+            "title": "DeleteWebhook",
             "description": "For an existing AWS CodeBuild build project that has its source code stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code change is pushed to the repository.",
             "fields": {
                 "verbose": {
@@ -174,7 +174,7 @@
         },
         "ImportSourceCredentials": {
             "main": "./lib/actions/ImportSourceCredentials.js",
-            "title": " Imports the source repository credentials for an AWS CodeBuild project that has its source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. ",
+            "title": "ImportSourceCredentials",
             "description": " Imports the source repository credentials for an AWS CodeBuild project that has its source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. ",
             "fields": {
                 "verbose": {
@@ -191,7 +191,7 @@
         },
         "InvalidateProjectCache": {
             "main": "./lib/actions/InvalidateProjectCache.js",
-            "title": "Resets the cache for a project.",
+            "title": "InvalidateProjectCache",
             "description": "Resets the cache for a project.",
             "fields": {
                 "verbose": {
@@ -208,7 +208,7 @@
         },
         "ListBuilds": {
             "main": "./lib/actions/ListBuilds.js",
-            "title": "Gets a list of build IDs, with each build ID representing a single build.",
+            "title": "ListBuilds",
             "description": "Gets a list of build IDs, with each build ID representing a single build.",
             "fields": {
                 "verbose": {
@@ -225,7 +225,7 @@
         },
         "ListBuildsForProject": {
             "main": "./lib/actions/ListBuildsForProject.js",
-            "title": "Gets a list of build IDs for the specified build project, with each build ID representing a single build.",
+            "title": "ListBuildsForProject",
             "description": "Gets a list of build IDs for the specified build project, with each build ID representing a single build.",
             "fields": {
                 "verbose": {
@@ -242,7 +242,7 @@
         },
         "ListCuratedEnvironmentImages": {
             "main": "./lib/actions/ListCuratedEnvironmentImages.js",
-            "title": "Gets information about Docker images that are managed by AWS CodeBuild.",
+            "title": "ListCuratedEnvironmentImages",
             "description": "Gets information about Docker images that are managed by AWS CodeBuild.",
             "fields": {
                 "verbose": {
@@ -259,7 +259,7 @@
         },
         "ListProjects": {
             "main": "./lib/actions/ListProjects.js",
-            "title": "Gets a list of build project names, with each build project name representing a single build project.",
+            "title": "ListProjects",
             "description": "Gets a list of build project names, with each build project name representing a single build project.",
             "fields": {
                 "verbose": {
@@ -276,7 +276,7 @@
         },
         "ListSourceCredentials": {
             "main": "./lib/actions/ListSourceCredentials.js",
-            "title": " Returns a list of <code>SourceCredentialsInfo</code> objects. ",
+            "title": "ListSourceCredentials",
             "description": " Returns a list of <code>SourceCredentialsInfo</code> objects. ",
             "fields": {
                 "verbose": {
@@ -293,7 +293,7 @@
         },
         "StartBuild": {
             "main": "./lib/actions/StartBuild.js",
-            "title": "Starts running a build.",
+            "title": "StartBuild",
             "description": "Starts running a build.",
             "fields": {
                 "verbose": {
@@ -310,7 +310,7 @@
         },
         "StopBuild": {
             "main": "./lib/actions/StopBuild.js",
-            "title": "Attempts to stop running a build.",
+            "title": "StopBuild",
             "description": "Attempts to stop running a build.",
             "fields": {
                 "verbose": {
@@ -327,7 +327,7 @@
         },
         "UpdateProject": {
             "main": "./lib/actions/UpdateProject.js",
-            "title": "Changes the settings of a build project.",
+            "title": "UpdateProject",
             "description": "Changes the settings of a build project.",
             "fields": {
                 "verbose": {
@@ -344,8 +344,8 @@
         },
         "UpdateWebhook": {
             "main": "./lib/actions/UpdateWebhook.js",
-            "title": "<p> Updates the webhook associated with an AWS CodeBuild build project. </p> <note> <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored. </p> </note>",
-            "description": "<p> Updates the webhook associated with an AWS CodeBuild build project. </p> <note> <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored. </p> </note>",
+            "title": "UpdateWebhook",
+            "description": " Updates the webhook associated with an AWS CodeBuild build project. \n\n If you use Bitbucket for your repository, rotateSecret is ignored.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
